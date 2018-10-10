@@ -1,0 +1,31 @@
+{
+  "name": "game-iverse",
+  "version": "1.0.0",
+  "description": "game templates for Js games",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wolffles/game-iverse.git"
+  },
+  "keywords": [
+    "game-iverse",
+    "library",
+    "game"
+  ],
+  "author": "wolf tru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wolffles/game-iverse/issues"
+  },
+  "homepage": "https://github.com/wolffles/game-iverse#readme",
+  "dependencies": {
+    "webpack": "4.20.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "3.1.2"
+  }
+}
