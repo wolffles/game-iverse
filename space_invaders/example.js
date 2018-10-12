@@ -166,29 +166,48 @@
 // draw();
 
 
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-const ballRadius = 10;
-var x = canvas.width / 2;
-var y = canvas.height - 30;
-var dx = 2;
-var dy = -2;
-const gameLogic = require("./gameLogic");
-const mod_ex = require("./mod_ex");
+// import { canvas, ctx, ballRadius, x, y, dx, dy, padX, canvasHeight } from "./gameVar";
+var gameLogic = require("./gameLogic");
+var objects = require("./objects");
+import { World, Ball, GameLogic, Paddle} from "./sprites";
+var canvas = new World(document.getElementById("canvas") );
+var ball = new Ball(canvas)
+var gamelogic = new GameLogic(canvas)
+var paddle = new Paddle(canvas)
 
+// function keyDownHandler(e) {
+//   if (e.keyCode == 39) {
+//     rightPressed = true;
+//   }
+//   else if (e.keyCode == 37) {
+//     leftPressed = true;
+//   }
+// }
 
+// function keyUpHandler(e) {
+//   if (e.keyCode == 39) {
+//     rightPressed = false;
+//   }
+//   else if (e.keyCode == 37) {
+//     leftPressed = false;
+//   }
+// }
+// document.addEventListener("keydown", keyDownHandler, false);
+// document.addEventListener("keyup", keyUpHandler, false);
+
+paddle.keyUp
+paddle.keyDown
 var draw = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    mod_ex.drawBall(ctx, x, y, ballRadius)
-    if (gameLogic.vert_boundries(x, dx, canvas, ballRadius)) {
-      dx = -dx;
-    }
-    if (gameLogic.hor_boundries(y, dy, canvas, ballRadius)) {
-      dy = -dy;
-    }
-    x += dx;
-    y += dy;
-    requestAnimationFrame(draw)
+  canvas.ctx.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
+  ball.draw() 
+  paddle.draw()
+  ball.boundries()
+  paddle.movement()
+
+  ball.x += ball.dx;
+  ball.y += ball.dy;
+  requestAnimationFrame(draw)
 }
+
 
 draw();
