@@ -1,4 +1,4 @@
 /node_modules/
 xnotesx.md
-/example.html/
-/example.js/
+**/example.html
+**/example.js
