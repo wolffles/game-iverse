@@ -1,6 +1,6 @@
 {
   "name": "game-iverse",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "game templates for Js games",
   "main": "index.js",
   "scripts": {
@@ -22,8 +22,6 @@
     "url": "https://github.com/wolffles/game-iverse/issues"
   },
   "homepage": "https://github.com/wolffles/game-iverse#readme",
-  "dependencies": {
-  },
-  "devDependencies": {
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
