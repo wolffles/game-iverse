@@ -1,6 +1,6 @@
 {
   "name": "game-iverse",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "game templates for Js games",
   "main": "index.js",
   "scripts": {
