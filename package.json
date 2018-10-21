@@ -23,9 +23,7 @@
   },
   "homepage": "https://github.com/wolffles/game-iverse#readme",
   "dependencies": {
-    "webpack": "4.20.2"
   },
   "devDependencies": {
-    "webpack-cli": "3.1.2"
   }
 }

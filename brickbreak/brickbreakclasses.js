@@ -1,27 +1,25 @@
-
-
-export class World {
+class World {
     constructor(canvas) {
         this.canvas = canvas
         this.ctx = this.canvas.getContext("2d");
     }
-
 }
 
-export class Hud {
+class Hud {
     constructor(world) {
         this.canvas = world.canvas;
         this.ctx = world.ctx
         this.score = 0;
     }
+
     draw() {
-    this.ctx.font = "16px Arial";
-    this.ctx.fillStyle = "#0095DD";
-    this.ctx.fillText("Score: " + this.score, 8, 20);
-}
+        this.ctx.font = "16px Arial";
+        this.ctx.fillStyle = "#0095DD";
+        this.ctx.fillText("Score: " + this.score, 8, 20);
+    }
 }
 
-export class Ball {
+class Ball {
     constructor(world) {
         this.canvas = world.canvas;
         this.ctx = world.ctx;
@@ -62,7 +60,7 @@ export class Ball {
     }
 }
 
-export class Brick {
+class Brick {
     constructor(world, brickRowCount = 3, brickColumnCount = 5, brickWidth = 75, brickHeight = 20, brickPadding = 10, brickOffsetTop = 30, brickOffsetLeft = 30) {
         this.canvas = world.canvas;
         this.ctx = world.ctx;
@@ -123,7 +121,7 @@ export class Brick {
 
 }
 
-export class Paddle {
+class Paddle {
     constructor (world) {
         this.canvas = world.canvas;
         this.ctx = world.ctx;
@@ -180,4 +178,12 @@ export class Paddle {
             this.paddleX = relativeX - this.paddleWidth / 2
         }
     };
+}
+
+module.exports = {
+    World,
+    Hud,
+    Brick,
+    Ball,
+    Paddle
 }

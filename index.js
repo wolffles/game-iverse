@@ -1,3 +1,3 @@
-import brickBreakClasses from './brickbreak/brickbreakclasses'
+const brickBreakClasses = require('./brickbreak/brickbreakclasses');
 
-module.exports.brickbreak = {brickBreakClasses}
+module.exports.brickbreak = brickBreakClasses;
