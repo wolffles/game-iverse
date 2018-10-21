@@ -1,9 +1,3 @@
-// const Name = require('location')
-// const anotherModule = require('location')
+import brickBreakClasses from './brickbreak/brickbreakclasses'
 
-module.exports = {
-    // all: Name,
-    // random: anotherModule
-
-
-}
+module.exports.brickbreak = {brickBreakClasses}
