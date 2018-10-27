@@ -12,8 +12,8 @@ in your project directory
 Currently you can't natively require NPM packages in the browser to make a client side game. There are however a couple hacks you can use to make a javascript game. new methods will be added as time goes on.
 
 
-### using browsers native module support
-the easiest native implementation is to make a client side game importing the classes directly from the package folder.
+### Using the browser's native module support
+the easiest implementation at the moment is to make a client side game importing the classes directly from the package folder.
 in your html add this script : ` <script type="module" src="./example.js"></script>`
 ```javascript
 //add to a js file "example.js"
@@ -48,5 +48,6 @@ draw();
 
 ```
 
-### you can use a bundler like webpack or browserify
-examples coming soone
+### You can use a bundler like webpack or browserify
+I'd suggest taking a look at browserify
+examples coming soon
