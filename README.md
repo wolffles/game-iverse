@@ -11,8 +11,12 @@ in your project directory
 ## USAGE
 Currently you can't natively require NPM packages in the browser to make a client side game. There are however a couple hacks you can use to make a javascript game. new methods will be added as time goes on.
 
-the easiest implementation is to make a client side game importing the classes directly from the package folder.
+
+### using browsers native module support
+the easiest native implementation is to make a client side game importing the classes directly from the package folder.
+in your html add this script : ` <script type="module" src="./example.js"></script>`
 ```javascript
+//add to a js file "example.js"
 // this is the full game just add the script to your html
 import { World, Ball, Paddle, Brick, Hud } from '../node_modules/game-iverse/brickbreak/brickbreakclasses.js'
 var canvas = new World(document.getElementById("canvas"));
@@ -43,3 +47,6 @@ var draw = () => {
 draw();
 
 ```
+
+### you can use a bundler like webpack or browserify
+examples coming soone
