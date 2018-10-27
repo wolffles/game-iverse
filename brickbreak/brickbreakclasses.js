@@ -1,11 +1,11 @@
-class World {
+export class World {
     constructor(canvas) {
         this.canvas = canvas
         this.ctx = this.canvas.getContext("2d");
     }
 }
 
-class Hud {
+export class Hud {
     constructor(world) {
         this.canvas = world.canvas;
         this.ctx = world.ctx
@@ -19,7 +19,7 @@ class Hud {
     }
 }
 
-class Ball {
+export class Ball {
     constructor(world) {
         this.canvas = world.canvas;
         this.ctx = world.ctx;
@@ -60,7 +60,7 @@ class Ball {
     }
 }
 
-class Brick {
+export class Brick {
     constructor(world, brickRowCount = 3, brickColumnCount = 5, brickWidth = 75, brickHeight = 20, brickPadding = 10, brickOffsetTop = 30, brickOffsetLeft = 30) {
         this.canvas = world.canvas;
         this.ctx = world.ctx;
@@ -121,7 +121,7 @@ class Brick {
 
 }
 
-class Paddle {
+export class Paddle {
     constructor (world) {
         this.canvas = world.canvas;
         this.ctx = world.ctx;
@@ -180,10 +180,10 @@ class Paddle {
     };
 }
 
-module.exports = {
-    World,
-    Hud,
-    Brick,
-    Ball,
-    Paddle
-}
+// module.exports = {
+//     World: World,
+//     Hud:Hud,
+//     Brick:Brick,
+//     Ball:Ball,
+//     Paddle:Paddle
+// }
