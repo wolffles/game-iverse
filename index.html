@@ -1,0 +1,68 @@
+<head>
+    <script src="example2.js"></script>
+    <script src="./node_modules/game-iverse/platformer/levels.js"></script>
+ 
+    
+   
+    <style>.background    { background: rgb(52, 166, 251);  /*Change background colour*/
+        table-layout: fixed;
+        border-spacing: 0;              }
+.background td { padding: 0;                     }
+.lava          { background: rgb(255, 100, 100); }  /*Change lava colour*/
+.wall          { background: white;              }  /*Change wall texture colour*/
+
+.actor  { position: absolute;            }
+.coin   { background: rgb(241, 229, 89); } /* Change coin colour*/
+.player { background: rgb(64, 64, 64);   } /* Change character colour*/
+
+.lost .player {
+  background: rgb(160, 64, 64);
+}
+.won .player {
+  box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+}
+
+.game {
+  overflow: hidden;
+  max-width: 600px;
+  max-height: 450px;
+  position: relative;
+}
+</style>
+</head>
+
+
+
+<body>
+    <div id="insert"></div><div id="insert2">Coins: 0</div>
+    <button value="Refresh Page" onClick="window.location.reload();"> Restart </button> 
+  <script>
+    async function runGame(plans, Display) {
+    let lives = 3;
+    for (let level = 0; level < plans.length && lives > 0;) {
+      console.log(`Level ${level + 1}, lives: ${lives}`);
+      
+      document.getElementById("insert").innerHTML = 'Level ' + (level + 1) + ', lives: ' + lives;
+      let status = await runLevel(new Level(plans[level]),
+                                  Display);
+      if (status == "won") level++;
+      else lives--;
+    }
+    if (lives > 0) {
+      document.getElementById("insert").innerHTML = "YOU WON!!!";
+      document.getElementById("insert2").innerHTML = "";
+    } else {
+      document.getElementById("insert").innerHTML = "GAME OVER";
+      document.getElementById("insert2").innerHTML = "";
+
+    }
+  }
+  runGame(GAME_LEVELS, DOMDisplay);
+
+
+  </script>
+</br>
+</body>
+
+
+</body>
