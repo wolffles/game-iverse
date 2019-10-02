@@ -1,6 +1,6 @@
 export class World {
     constructor(canvas) {
-        this.canvas = canvas
+        this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d");
     }
 }
@@ -8,7 +8,7 @@ export class World {
 export class Hud {
     constructor(world) {
         this.canvas = world.canvas;
-        this.ctx = world.ctx
+        this.ctx = world.ctx;
         this.score = 0;
     }
 
@@ -22,12 +22,11 @@ export class Hud {
 export class Ball {
     constructor(world) {
         this.canvas = world.canvas;
-        this.ctx = world.ctx;
-        this.x = canvas.width / 2;
-        this.y = canvas.height - 30;
-        this.ballRadius = 10
+        this.x = this.canvas.width / 2;
+        this.y = this.canvas.height - 30;
+        this.ballRadius = 10;
         this.dx = 2;
-        this.dy = -2
+        this.dy = -2;
     }
     draw() {
         this.ctx.beginPath();
@@ -39,29 +38,40 @@ export class Ball {
 
     boundaries(x, paddle) {
         // vertical boundarries
-        if (x + this.dx > canvas.width - this.ballRadius || x + this.dx < this.ballRadius) {
+        if (
+            x + this.dx > canvas.width - this.ballRadius ||
+            x + this.dx < this.ballRadius
+        ) {
             this.dx = -this.dx;
         }
         //horizontal boundaries
-        if ( this.y + this.dy < this.ballRadius) {
+        if (this.y + this.dy < this.ballRadius) {
             this.dy = -this.dy;
         }
         // if ball y + next frame > the end of the canvas - ball radius
         else if (this.y + this.dy > this.canvas.height - this.ballRadius) {
-        // if ball x is within the paddle boundries
+            // if ball x is within the paddle boundries
             if (x > paddle.paddleX && x < paddle.paddleX + paddle.paddleWidth) {
                 this.dy = -this.dy;
-            }
-            else {
+            } else {
                 alert("GAME OVER");
-                document.location.reload();
+                window.location.reload();
             }
-        }   
+        }
     }
 }
 
 export class Brick {
-    constructor(world, brickRowCount = 3, brickColumnCount = 5, brickWidth = 75, brickHeight = 20, brickPadding = 10, brickOffsetTop = 30, brickOffsetLeft = 30) {
+    constructor(
+        world,
+        brickRowCount = 3,
+        brickColumnCount = 5,
+        brickWidth = 75,
+        brickHeight = 20,
+        brickPadding = 10,
+        brickOffsetTop = 30,
+        brickOffsetLeft = 30
+    ) {
         this.canvas = world.canvas;
         this.ctx = world.ctx;
         this.brickRowCount = brickRowCount;
@@ -73,20 +83,26 @@ export class Brick {
         this.brickOffsetLeft = brickOffsetLeft;
         this.bricks = [];
         this.bricksArray = function () {
-            for (var c = 0; c < this.brickColumnCount; c++) {
+            for (let c = 0; c < this.brickColumnCount; c++) {
                 this.bricks[c] = [];
-                for (var r = 0; r < this.brickRowCount; r++) {
-                    this.bricks[c][r] = { x: 0, y: 0, status: 1 };
+                for (let r = 0; r < this.brickRowCount; r++) {
+                    this.bricks[c][r] = {
+                        x: 0,
+                        y: 0,
+                        status: 1
+                    };
                 }
             }
-        }
+        };
 
         this.draw = function () {
-            for (var c = 0; c < this.brickColumnCount; c++) {
-                for (var r = 0; r < this.brickRowCount; r++) {
+            for (let c = 0; c < this.brickColumnCount; c++) {
+                for (let r = 0; r < this.brickRowCount; r++) {
                     if (this.bricks[c][r].status == 1) {
-                        var brickX = (c * (this.brickWidth + this.brickPadding)) + this.brickOffsetLeft;
-                        var brickY = (r * (this.brickHeight + this.brickPadding)) + this.brickOffsetTop;
+                        const brickX =
+                            c * (this.brickWidth + this.brickPadding) + this.brickOffsetLeft;
+                        const brickY =
+                            r * (this.brickHeight + this.brickPadding) + this.brickOffsetTop;
                         this.bricks[c][r].x = brickX;
                         this.bricks[c][r].y = brickY;
                         this.ctx.beginPath();
@@ -97,32 +113,36 @@ export class Brick {
                     }
                 }
             }
-        }
+        };
 
-        this.collisionDetection =function(ball, hud) {
-            for (var c = 0; c < this.brickColumnCount; c++) {
-                for (var r = 0; r < this.brickRowCount; r++) {
-                    var b = this.bricks[c][r];
+        this.collisionDetection = function (ball, hud) {
+            for (let c = 0; c < this.brickColumnCount; c++) {
+                for (let r = 0; r < this.brickRowCount; r++) {
+                    let b = this.bricks[c][r];
                     if (b.status === 1) {
-                        if (ball.x > b.x && ball.x < b.x + this.brickWidth && ball.y > b.y && ball.y < b.y + this.brickHeight) {
+                        if (
+                            ball.x > b.x &&
+                            ball.x < b.x + this.brickWidth &&
+                            ball.y > b.y &&
+                            ball.y < b.y + this.brickHeight
+                        ) {
                             ball.dy = -ball.dy;
-                            b.status = 0
-                            hud.score++
+                            b.status = 0;
+                            hud.score++;
                             if (hud.score == this.brickColumnCount * this.brickRowCount) {
                                 alert("YOU WIN, CONGRATULATIONS!");
-                                document.location.reload();
+                                window.location.reload();
                             }
                         }
                     }
                 }
             }
-        }
+        };
     }
-
 }
 
 export class Paddle {
-    constructor (world) {
+    constructor(world) {
         this.canvas = world.canvas;
         this.ctx = world.ctx;
         this.paddleHeight = 10;
@@ -130,60 +150,68 @@ export class Paddle {
         this.paddleX = (this.canvas.width - this.paddleWidth) / 2; // location
         this.rightPressed = false;
         this.leftPressed = false;
-        this.keyDown = document.addEventListener("keydown", (e) => this.keyDownHandler(e), false);
+        this.keyDown = document.addEventListener(
+            "keydown",
+            e => this.keyDownHandler(e),
+            false
+        );
 
-        this.keyUp = document.addEventListener("keyup", (e) => this.keyUpHandler(e), false);
+        this.keyUp = document.addEventListener(
+            "keyup",
+            e => this.keyUpHandler(e),
+            false
+        );
 
-        this.mouseMove = document.addEventListener("mousemove", (e) => this.mouseMoveHandler(e), false);
+        this.mouseMove = document.addEventListener(
+            "mousemove",
+            e => this.mouseMoveHandler(e),
+            false
+        );
     }
     keyUpHandler(e) {
         if (e.keyCode == 39) {
             this.rightPressed = false;
-        }
-        else if (e.keyCode == 37) {
+        } else if (e.keyCode == 37) {
             this.leftPressed = false;
-
         }
-    };  
+    }
 
     keyDownHandler(e) {
         if (e.keyCode == 39) {
             this.rightPressed = true;
-        }
-        else if (e.keyCode == 37) {
+        } else if (e.keyCode == 37) {
             this.leftPressed = true;
-
         }
-    };
+    }
 
     draw() {
         this.ctx.beginPath();
-        this.ctx.rect(this.paddleX, this.canvas.height - this.paddleHeight, this.paddleWidth, this.paddleHeight);
+        this.ctx.rect(
+            this.paddleX,
+            this.canvas.height - this.paddleHeight,
+            this.paddleWidth,
+            this.paddleHeight
+        );
         this.ctx.fillStyle = "#0095DD";
         this.ctx.fill();
         this.ctx.closePath();
     }
 
-    movement(){
-        if (this.rightPressed && this.paddleX < this.canvas.width - this.paddleWidth) {
+    movement() {
+        if (
+            this.rightPressed &&
+            this.paddleX < this.canvas.width - this.paddleWidth
+        ) {
             this.paddleX += 7;
         } else if (this.leftPressed && this.paddleX > 0) {
             this.paddleX -= 7;
         }
     }
 
-    mouseMoveHandler(e){
-        var relativeX = e.clientX - this.canvas.offsetLeft;
+    mouseMoveHandler(e) {
+        const relativeX = e.clientX - this.canvas.offsetLeft;
         if (relativeX > 0 && relativeX < this.canvas.width) {
-            this.paddleX = relativeX - this.paddleWidth / 2
+            this.paddleX = relativeX - this.paddleWidth / 2;
         }
-    };
+    }
 }
-
-// module.exports = {
-//     World: World,
-//     Hud:Hud,
-//     Brick:Brick,
-//     Ball:Ball,
-//     Paddle:Paddle
-// }
