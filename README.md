@@ -51,3 +51,6 @@ draw();
 ### You can use a bundler like webpack or browserify
 I'd suggest taking a look at browserify
 examples coming soon
+
+### Contributors :
+Dimitri Klopfstein . 
