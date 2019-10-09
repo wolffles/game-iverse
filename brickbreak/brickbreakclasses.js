@@ -22,6 +22,7 @@ export class Hud {
 export class Ball {
     constructor(world) {
         this.canvas = world.canvas;
+        this.ctx = world.ctx;
         this.x = this.canvas.width / 2;
         this.y = this.canvas.height - 30;
         this.ballRadius = 10;
