@@ -1,12 +1,12 @@
 # GAME-IVERSE
-jumpstart your JS game using game-iverse game libraries.
+Jumpstart your JS game using **game-iverse game** libraries.
 
 ## CURRENT GAMES 
     * brickbreak
     * snake
 
 ## INSTALL
-in your project directory 
+In your project directory:
 `npm install game-iverse`
 
 ## USAGE
@@ -14,8 +14,8 @@ Currently you can't natively require NPM packages in the browser to make a clien
 
 
 ### Using the browser's native module support
-the easiest implementation at the moment is to make a client side game importing the classes directly from the package folder.
-in your html add this script : ` <script type="module" src="./example.js"></script>`
+The easiest implementation at the moment is to make a client side game importing the classes directly from the package folder.
+In your html add this script: ` <script type="module" src="./example.js"></script>`
 
 #### BrickBreak
 ```javascript
@@ -90,7 +90,6 @@ draw();
 I'd suggest taking a look at browserify
 examples coming soon
 
-
-### Contributors :
+### Contributors
 jeff-ong
 pandabear41
