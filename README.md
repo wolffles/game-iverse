@@ -1,5 +1,5 @@
 # GAME-IVERSE
-Jumpstart your JS game using **game-iverse game** libraries.
+**Game-iverse** is a game library that supplies building blocks for games. Jumpstart your JS game using game-iverse game libraries.
 
 ## CURRENT GAMES 
     * brickbreak
