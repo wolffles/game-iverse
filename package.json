@@ -19,6 +19,9 @@
   ],
   "author": "wolf tru",
   "license": "MIT",
+  "files": [
+      "src/"
+  ],
   "bugs": {
     "url": "https://github.com/wolffles/game-iverse/issues"
   },
