@@ -1,6 +1,6 @@
 //add to a js file "example.js"
 // this is the full game just add the script to your html
-import { World, Snake, Food, Hud } from '../../snake/snakeclasses.js'
+import { World, Snake, Food, Hud } from '../../src/snake/snakeclasses.js'
 var canvas = new World(document.getElementById("canvas"));
 var hud = new Hud(canvas);
 var snake = new Snake(canvas);

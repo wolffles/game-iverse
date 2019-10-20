@@ -1,6 +1,6 @@
 //add to a js file "example.js"
 // this is the full game just add the script to your html
-import { World, Ball, Paddle, Brick, Hud } from '../../brickbreak/brickbreakclasses'
+import { World, Ball, Paddle, Brick, Hud } from '../../src/brickbreak/brickbreakclasses'
 var canvas = new World(document.getElementById("canvas"));
 var ball = new Ball(canvas);
 var brick = new Brick(canvas);
