@@ -4,7 +4,8 @@
   "description": "game templates for Js games",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --watch",
+    "build:snake": "npx browserify -p esmify examples/snake/snake.js -o examples/snake/bundle.js",
+    "build:brickbreak": "npx browserify -p esmify examples/brickbreak/brickbreak.js -o examples/brickbreak/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,10 +19,17 @@
   ],
   "author": "wolf tru",
   "license": "MIT",
+  "files": [
+      "src/"
+  ],
   "bugs": {
     "url": "https://github.com/wolffles/game-iverse/issues"
   },
   "homepage": "https://github.com/wolffles/game-iverse#readme",
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+  },
+  "devDependencies": {
+    "browserify": "^16.5.0",
+    "esmify": "^2.1.1"
+  }
 }
