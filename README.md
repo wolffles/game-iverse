@@ -2,8 +2,8 @@
 jumpstart your JS game using game-iverse game libraries.
 
 ## CURRENT GAMES 
-    * brickbreak
-    * snake
+    * Brickbreak
+    * Snake
 
 ## INSTALL
 in your project directory 
