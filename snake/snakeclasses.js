@@ -140,7 +140,7 @@ export class Food {
         this.y = canvas.height - (this.grid * 6);
     };
     collisionDetection(snake, hud) {
-    	if (snake.x === this.x && snake.y === this.y) {
+    	if (Math.floor(snake.x / this.grid) === Math.floor(this.x / this.grid) && Math.floor(snake.y / this.grid) === Math.floor(this.y / this.grid)) {
     		snake.snakeLength++;
     		hud.score++;
 
