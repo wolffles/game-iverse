@@ -1,5 +1,3 @@
-const brickBreakClasses = require('./brickbreak/brickbreakclasses');
-const snakeClasses = require('./snake/snakeclasses');
+const pongserverclasses = require('./pongserver/pongserverclasses');
 
-module.exports.brickbreak = brickBreakClasses;
-module.exports.snake = snakeClasses;
+module.exports.pongserver = pongserverclasses;
